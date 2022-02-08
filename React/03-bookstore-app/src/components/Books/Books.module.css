@@ -1,0 +1,32 @@
+.booksContainer {
+  display: grid;
+  background-color: white;
+  /* grid-template-columns: repeat(5, 1fr); */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 5fr));
+  justify-items: center;
+  padding: 1rem;
+  row-gap: 2rem;
+}
+
+.booksLoading {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+}
+
+.booksLoading p {
+  font-size: 24px;
+}
+
+.booksError p{
+  font-size: 24px;
+  text-align: center;
+  margin: 10rem;
+  color: red;
+}
+
+/* @media (min-width: 600px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+} */
