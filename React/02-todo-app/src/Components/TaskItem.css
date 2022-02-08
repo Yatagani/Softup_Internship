@@ -1,0 +1,38 @@
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: white;
+  width: 50rem;
+  max-width: 100%;
+}
+
+.task-item__description {
+  text-decoration: line-through;
+}
+
+.button-done {
+  background-color: white;
+  border: 1px solid green;
+  border-radius: 6px;
+  color: green;
+  font-size: 1rem;
+  padding: 0.5rem;
+  justify-content: space-beteen;
+  width: 2rem;
+}
+
+.button-remove {
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 6px;
+  color: red;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 2rem;
+  margin-left: 0.5rem;
+}
