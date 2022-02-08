@@ -1,0 +1,89 @@
+.cover {
+  display: flex;
+  background: white;
+  padding: 2rem 2rem;
+  justify-content: center;
+}
+
+.cover img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 2px solid purple;
+}
+
+.personal {
+  display: flex;
+  flex-flow: column;
+  background: white;
+  justify-content: center;
+}
+
+.location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.location img {
+  width: 1rem;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.location p {
+  font-style: italic;
+  font-size: 20px;
+}
+
+.personal h2 {
+  margin: auto;
+}
+
+.details {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  padding-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 50px;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+}
+
+.box p {
+  font-size: 20px;
+}
+
+.container {
+  display: grid;
+  background: whitesmoke;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  /* border: 1px solid grey; */
+  padding: 2rem;
+  width: 70rem;
+  margin: auto;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+}
+
+.repoBox {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 300px;
+  height: 50px;
+  border: 1px solid grey;
+  border-radius: 8px;
+  background: white;
+}
