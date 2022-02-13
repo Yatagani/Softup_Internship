@@ -2,7 +2,9 @@
     display: flex;
     flex-flow: column;
     border-top: 1px solid #ccc;
-    padding: .5rem;
+    padding: 1rem;
+    gap: .5rem;
+
 }
 
 .main {
@@ -12,16 +14,23 @@
     align-items: center;
 }
 
-.main h2 {
+.title {
     margin-bottom: 0;
+    font-size: 16pt;
+    font-weight: bold;
 }
 
+.title:hover,
+.title:active{
+    color: darkblue;
+}
+
+
 .labels {
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 80%;
     border-radius: 1rem;
-    width: 4rem;
-    height: 1.5rem;
+    padding: 2px 1rem 2px 1rem;
     text-align: center;
 }
 

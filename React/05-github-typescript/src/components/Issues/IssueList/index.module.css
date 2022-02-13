@@ -9,3 +9,10 @@
 .list-group li:first-child {
     border-top: 0;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1rem;
+}
