@@ -4,7 +4,7 @@ import { Issue, IssueDetails } from '../../components/Issues/locales/types';
 
 export interface defaultInitialState {
     issues: Issue[],
-    status: 'idle' | 'loading' | 'error'
+    status: 'idle' | 'loading' | 'error',
 }
 
 const initialState: defaultInitialState = {
@@ -23,7 +23,7 @@ const issueSlice = createSlice({
       // state.issues = [...state.issues, ...action.payload];
       state.issues = action.payload;
     },
-    fetchSingle: (state, action: PayloadAction<IssueDetails[]>) => {
+    fetchSingle: (state: defaultInitialState, action: PayloadAction<IssueDetails[]>) => {
       if (state.issues.length) {
         const issueIndex = state.issues
           .findIndex((issue) => issue.number === action.payload[0].number);
@@ -36,9 +36,12 @@ const issueSlice = createSlice({
         state.issues = action.payload;
       }
     },
+    showStatus(state, action) {
+      state.status = action.payload;
+    },
   },
 });
 
-export const { fetchAll, fetchSingle } = issueSlice.actions;
+export const { fetchAll, fetchSingle, showStatus } = issueSlice.actions;
 
 export default issueSlice;

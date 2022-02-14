@@ -1,6 +1,6 @@
 import getIssues from './api';
 import { AppDispatch } from '../../../redux/store';
-import { fetchAll, fetchSingle } from '../../../redux/reducers/issueSlice';
+import { fetchAll, fetchSingle, showStatus } from '../../../redux/reducers/issueSlice';
 import { Issue, IssueDetails } from '../locales/types';
 
 export const fetchAllIssues = (page?: number) => async (dispatch: AppDispatch) => {
@@ -12,6 +12,7 @@ export const fetchAllIssues = (page?: number) => async (dispatch: AppDispatch) =
     const issueData = await response.json();
 
     // ---SUCCESS--- action here
+    dispatch(showStatus('loading'));
 
     const filteredData: Issue[] = [];
 
