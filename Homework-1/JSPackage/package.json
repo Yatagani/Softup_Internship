@@ -1,0 +1,14 @@
+{
+    "name": "@jatagani/uchalk",
+    "version": "2.0.0",
+    "description": "An ugly useless copy of Chalk npm module",
+    "license": "MIT",
+    "repository": "Yatagani/uchalk",
+    "main": "index.js",
+    "keywords": [
+        "uchalk",
+        "npm",
+        "package",
+        "yatagani"
+    ]
+}
