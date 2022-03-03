@@ -12,7 +12,7 @@ const twoSum = (array: number[], target: number): number[]=> {
         } else {
             result[array[i]] = i;
         }
-    };
+    }
     
     return result;
 };
@@ -63,8 +63,8 @@ const reverseBits = (int32: string): string => {
 };
 
 
-// console.log(twoSum([2, 7, 11, 15], 22));
-// console.log(getLastWord('Hello World'));
-// console.log(hammingDistance(1, 4));
-// console.log(processImage([[1,1,0],[1,0,1],[0,0,0]]))
-// console.log(reverseBits('00000010100101000001111010011100'));
+console.log(twoSum([2, 7, 11, 15], 22));
+console.log(getLastWord('Hello World'));
+console.log(hammingDistance(1, 4));
+console.log(processImage([[1,1,0],[1,0,1],[0,0,0]]))
+console.log(reverseBits('00000010100101000001111010011100'));

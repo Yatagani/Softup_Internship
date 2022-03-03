@@ -13,7 +13,6 @@ var twoSum = function (array, target) {
             result[array[i]] = i;
         }
     }
-    ;
     return result;
 };
 /*
@@ -51,8 +50,8 @@ var reverseBits = function (int32) {
     var result = int32.split("").reverse().join("");
     return result;
 };
-// console.log(twoSum([2, 7, 11, 15], 22));
-// console.log(getLastWord('Hello World'));
-// console.log(hammingDistance(1, 4));
-// console.log(processImage([[1,1,0],[1,0,1],[0,0,0]]))
-// console.log(reverseBits('00000010100101000001111010011100'));
+console.log(twoSum([2, 7, 11, 15], 22));
+console.log(getLastWord('Hello World'));
+console.log(hammingDistance(1, 4));
+console.log(processImage([[1, 1, 0], [1, 0, 1], [0, 0, 0]]));
+console.log(reverseBits('00000010100101000001111010011100'));
