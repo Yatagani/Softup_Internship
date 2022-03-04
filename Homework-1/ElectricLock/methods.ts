@@ -8,6 +8,7 @@ var table = new Table({
     colWidths: [5, 20, 15]
 });
 
+
 export const getCards = () => {
     const cards: cardType[] = loadCards();
     if (cards.length === 0) {
@@ -17,33 +18,37 @@ export const getCards = () => {
     cards.map((item: cardType) => {
         table.push([item.id, item.employee, item.authorized]);
     })
-    console.log(table.toString())
+    console.log(table.toString());
 };
+
 
 export const addCard = (employee: string, authorized: boolean) => {
     const cards: cardType[] = loadCards();
     const newID = handleID(cards);
 
-    const duplicatedCards = cards.filter((item) => {
-        return item.employee === employee
-    })
+    const duplicatedCards = cards.filter((item) => item.employee === employee);
+
     if (employee.trim() === "") {
         console.log(chalk.magenta.inverse("Please provide a valid name!"));
         return;
     }
     if (duplicatedCards.length === 0) {
-        cards.push({
-            id: newID.toString(),
-            employee: employee,
-            authorized: authorized,
-        });
-        saveCards(cards);
-        table.push([newID, employee, authorized])
-        console.log(table.toString())
-    } else {
         console.log(chalk.red.inverse("Employee already exist!"));
+        return;
     }
+
+    cards.push({
+        id: newID.toString(),
+        employee: employee,
+        authorized: authorized,
+    });
+
+    saveCards(cards);
+    table.push([newID, employee, authorized]);
+
+    console.log(table.toString());
 };
+
 
 export const deleteCard = (id: string) => {
     const cards: cardType[] = loadCards();
@@ -61,6 +66,7 @@ export const deleteCard = (id: string) => {
     console.log(chalk.green.inverse(msg));
 };
 
+
 export const updateCard = (id: string, authorize: boolean) => {
     const cards: cardType[] = loadCards();
 
@@ -69,12 +75,13 @@ export const updateCard = (id: string, authorize: boolean) => {
     if (updatedIndex === -1) {
         console.log(chalk.red.inverse('Card does not exist!'));
         return;
-    };
+    }
     
     Object.assign(cards[updatedIndex], {authorized: authorize});
     saveCards(cards);
 
 };
+
 
 export const checkCard = (id: string) => {
     const cards: cardType[] = loadCards();
@@ -83,7 +90,7 @@ export const checkCard = (id: string) => {
     if (!card) {
         console.log(chalk.red.inverse('Card does not exist!'));
         return;
-    };
+    }
 
     card.authorized
         ? console.log(chalk.green.inverse(`${card.employee} is authorized`))
