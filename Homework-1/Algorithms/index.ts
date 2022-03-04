@@ -1,6 +1,6 @@
 /*
-   Ex.1. Two sum problem
-*/
+ *  Ex.1. Two sum problem
+ */
 const twoSum = (array: number[], target: number): number[]=> {
     const result = [];
     for (let i = 0; i < array.length; i++) {
@@ -18,8 +18,8 @@ const twoSum = (array: number[], target: number): number[]=> {
 };
 
 /*
-   Ex.2. Length of last word
-*/
+ *  Ex.2. Length of last word
+ */
 const getLastWord = (word: string): number => {
     const formatedWord = word.trim().split(' ');
     const lastWord = formatedWord[formatedWord.length - 1];
@@ -29,8 +29,8 @@ const getLastWord = (word: string): number => {
 
 
 /*
-   Ex.3. Hamming Distance
-*/
+ *  Ex.3. Hamming Distance
+ */
 const hammingDistance = (x: number, y: number) : number => {
     const xor = (x ^ y).toString(2);
 
@@ -44,8 +44,8 @@ const hammingDistance = (x: number, y: number) : number => {
 };
 
 /*
-Ex.4. Flip horizontally & invert matrix
-*/
+ *  Ex.4. Flip horizontally & invert matrix
+ */
 const processImage = (image: number[][]): number[][] => {
     const result = image.map(
         (row) => row.reverse().map(
@@ -55,8 +55,8 @@ const processImage = (image: number[][]): number[][] => {
 };
 
 /*
-Ex.5. Reverse bits
-*/
+ *  Ex.5. Reverse bits
+ */
 const reverseBits = (int32: string): string => {
     const result = int32.split("").reverse().join("");
     return result;
