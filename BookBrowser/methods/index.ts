@@ -7,28 +7,34 @@ const table = new Table({
 });
 
 const detailsTable = new Table({
-    head: ['Key', 'Title', 'Description', 'Subjects'],
-    colWidths: [15, 40, 15, 15, 10],
+    head: ['Key', 'Title', 'Subjects', 'Description'],
+    colWidths: [15, 40, 25, 40],
 });
 
 
 export const searchBook = async (title: string, author: string) => {
+
+    if (author.trim() === "") {
+        console.log('Please provide an author name');
+        return;
+    }
+
     const url = 'https://openlibrary.org/search.json';
     const params = { title, author };
-
     const response = await getService({ url, params });
 
     if (!response.numFound) {
-        return (console.log('No books were found'));
+        console.log('No books were found');
+        return;
     }
 
     const data = response.docs.map(item => {
         return {
             key: item.key,
             title: item.title,
-            authorKey: item.author_key[0],
-            authorName: item.author_name[0],
-            firstPublishedYear: item.first_publish_year,
+            subtitle: item.subtitle ? item.subtitle : '',
+            place: item.place ? item.place[0] : '',
+            firstPublishedYear: item.first_publish_year ? item.first_publish_year : '',
         }
     });
 
@@ -36,9 +42,9 @@ export const searchBook = async (title: string, author: string) => {
         table.push([
             item.key.split('/').pop(),
             item.title,
-            item.authorName,
-            item.authorKey,
-            // item.firstPublishedYear,
+            item.subtitle,
+            item.place,
+            item.firstPublishedYear,
         ])
     });
 
@@ -47,16 +53,26 @@ export const searchBook = async (title: string, author: string) => {
 
 
 export const getDetails = async (key: string) => {
-    const url = `https://openlibrary.org/works/${key}.json`;
 
+    if (key.trim() === "") {
+        console.log('Please provide a valid key');
+        return;
+    }
+
+    const url = `https://openlibrary.org/works/${key}.json`;
     const response = await getService({ url });
+
+    if (!response.key) {
+        console.log('Something went wrong');
+        return;
+    }
 
     detailsTable.push([
         response.key.split('/').pop(),
         response.title, 
-        response.description,
-        response.subject
+        response.subjects ? response.subjects.map(item => item) : '',
+        response.description ? response.description : ''
     ])
 
-    console.log(response);
+    console.log(detailsTable.toString());
 };

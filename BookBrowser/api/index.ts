@@ -4,6 +4,7 @@ type ConfigParams = {
     title?: string,
     author?: string,
     key?: string,
+    page?: string,
 };
 
 type ConfigType = {
@@ -13,10 +14,13 @@ type ConfigType = {
 
 type BookInfo = {
     key: string,
-    title: string, 
-    first_publish_year: string, 
-    author_name: string[],
-    author_key?: string[]
+    title?: string,
+    subtitle?: string,
+    first_publish_year?: number, 
+    author_name?: string[],
+    author_key?: string[],
+    publish_place?: string[]
+    place: string[],
 };
 
 type BookType = {
@@ -24,8 +28,9 @@ type BookType = {
     docs: BookInfo[],
     key?: string,
     title?: string, 
+    subtitle?: string,
     description?: string,
-    subject?: string[],
+    subjects?: string[],
 };
 
 
@@ -40,6 +45,6 @@ export const getService = async (config: ConfigType): Promise<BookType> => {
 
         return response.data;
     } catch (error) {
-        console.log(error.toString());
+        return error.toString()
     }
 }
