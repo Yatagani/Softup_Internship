@@ -1,0 +1,66 @@
+header {
+    background: #2B2D42;
+    display: flex;
+    padding: 0 16px;
+    color: whitesmoke;
+}
+
+header h1 {
+    font-size: 32px;
+    color: whitesmoke;
+    font-family: arial;
+}
+
+header h1:hover {
+    cursor: pointer;
+  }
+
+body {
+    margin: 0 auto;
+    background: whitesmoke;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.details {
+    flex-grow: 1;
+}
+
+.details img {
+    height: auto;
+    width: 100%;
+}
+
+.details-bottom {
+    display: flex;
+    padding: 0 50px;
+    gap: 30px;
+    background: white;
+}
+
+.details-poster img{
+    height: auto;
+    width: 200px;
+    margin-top: -70px;
+    border-radius: 5px;
+}
+
+.details-description p{
+    color: #7A858F;
+    font-size: 18px;
+
+}
+
+.details-description h2{
+    color: #5C728A;
+    font-size: 18px;
+}
+
+footer {
+    color: #888888;
+    border-top: 1px solid #eeeeee;
+    padding: 0 16px;
+    margin: auto;
+}

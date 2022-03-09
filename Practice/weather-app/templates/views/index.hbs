@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        <title>Anime List</title>
+        <link rel="icon" href="/img/logo.jpeg">
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+
+    <body>
+        <div id="header_icon">{{>header}}</div>
+
+        <div class="main-content">
+            <div class="filterContainer">
+                <div>
+                    <label>Search</label>
+                    <input placeholder="Search anime..." id="search">
+                </div>
+                <div>
+                    <label>Genres</label>
+                    <div class="options">
+                        <select name="genre" id="genre">
+                            <option value="" disabled selected hidden>Any</option>
+                            <option value="drama">Drama</option>
+                            <option value="action">Action</option>
+                            <option value="sci-fi">Sci-fi</option>
+                            <option value="comedy">Comedy</option>
+                            <option value="romance">Romance</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="results">
+                <h3>Trending Now</h3>
+                <div class="media-cards" id="cardImage">
+                    {{#each animes}}
+                        <div class="media-card">
+                            <img src={{posterImage}} alt="cover" id={{id}}>
+                            <div class="media-card-title"><p>{{title}}</p></div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        
+        {{>footer}}
+
+        <script type="module" src="/js/app.js"></script>
+    </body>
+
+</html>
