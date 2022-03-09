@@ -7,7 +7,7 @@
     "ext": "ts,pug"
   },
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start": "node src/index.ts"
   },
   "keywords": [],
   "author": "",
