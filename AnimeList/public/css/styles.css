@@ -82,6 +82,7 @@ body {
     grid-gap: 28px 20px;
     grid-template-columns: repeat(auto-fill,185px);
     justify-content: space-between;
+    padding: 30px 0;
 }
 
 .options {

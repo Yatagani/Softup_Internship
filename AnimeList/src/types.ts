@@ -1,5 +1,7 @@
 export type ParamsConfig = {
     id?: string
+    text?: string,
+    category?: string,
 };
 
 export type QueryConfig = {
@@ -28,6 +30,11 @@ export type AnimeDetails = {
 type Error = {
     title?: string,
     detail?: string
+};
+
+export type Params = {
+    field?: string,
+    value?: string,
 };
 
 export type AnimeAPI = {

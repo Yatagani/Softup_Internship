@@ -21,6 +21,63 @@ app.get('/', async (req, res) => {
   })
 
 app.get('/anime', async (req, res) => {
+    console.log(req.query.category);
+    if (req.query.category) {
+
+        const params = {
+            field: "category",
+            value: req.query.category as string
+        };
+
+        const animes = await getAnimes(params);
+
+        if (!animes) { return }
+
+        const data = animes.map(item => {
+            return {
+                id: item.id,
+                link: item.links.self,
+                title: item.attributes.canonicalTitle,
+                description: item.attributes.description,
+                coverImage: item.attributes.coverImage?.small,
+                posterImage: item.attributes.posterImage?.small,
+            }
+        })
+    
+        res.render('index', {
+            headerTitle: "Anime List",
+            animes: data,
+        })
+
+    }
+
+    else if (req.query.text) {
+        const params = {
+            field: "search",
+            value: req.query.text as string
+        };
+
+        const animes = await getAnimes(params);
+
+        if (!animes) { return }
+
+        const data = animes.map(item => {
+            return {
+                id: item.id,
+                link: item.links.self,
+                title: item.attributes.canonicalTitle,
+                description: item.attributes.description,
+                coverImage: item.attributes.coverImage?.small,
+                posterImage: item.attributes.posterImage?.small,
+            }
+        })
+    
+        res.render('index', {
+            headerTitle: "Anime List",
+            animes: data,
+        })
+    }
+
     const animes = await getAnimes();
 
     if (!animes) { return }
@@ -67,6 +124,7 @@ app.get('/anime/details', async (req, res) => {
 
   app.get('*', (req, res) => {
     res.render('404', {
+        headerTitle: "Anime List",
         errorMessage: 'Page not found.'
     })
 })
