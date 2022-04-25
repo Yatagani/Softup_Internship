@@ -1,7 +1,3 @@
-# Softup_Internship
+## NODE JS Course
 
-Internship courses
-
-- React
-- Node
-- AWS
+A list of homeworks and tasks to solve during the course.
