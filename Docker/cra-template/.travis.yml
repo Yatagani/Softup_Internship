@@ -1,10 +1,26 @@
 langauge: generic
 sudo: required
+
 services:
   - docker  # Automatically install a copy of Docker in our container
 
 before_install:
-  - docker build -t USERNAME/<PROJECT_NAME> -f Dockerfile.dev .
+  - docker build -t <USERNAME>/<PROJECT_NAME> -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true USERNAME/<PROJECT_NAME> npm run test
+  - docker run -e CI=true <USERNAME>/<PROJECT_NAME> npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: eu-central-1
+  app: <ELASTIC_BEANSTALK_APP_NAME>
+  env: <ELASTIC_BEANSTALK_ENV_NAME>
+  bucket_name: <S3_BUCKET_NAME_CREATED_BY_BEANSTALK>
+  bucket_path: <ELASTIC_BEANSTALK_APP_NAME>
+  on:
+    branch: master
+  # Set up env variables in Travis
+  access_key_id: $AWS_ACCCESS_KEY
+  secrete_access_key: $AWS_SECRET_KEY
+
+
