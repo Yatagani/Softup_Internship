@@ -1,9 +1,17 @@
+#Specify a base image
 FROM node:14-alpine
 
-WORKDIR /app
+#Specify a working directory
+WORKDIR /usr/app
 
+#Copy the dependencies file
 COPY ./package.json ./
+
+#Install dependencies
 RUN npm install
+
+#Copy remaining files
 COPY ./ ./
 
-CMD ["npm", "start"]
+#Default command
+CMD ["npm","start"]

@@ -1,8 +1,8 @@
 {
+  "type": "module",
   "dependencies": {
-    "@redis/client": "^1.2.0",
-    "express": "^4.18.1",
-    "redis": "^4.2.0"
+    "express": "*",
+    "redis": "^4.1.0"
   },
   "scripts": {
     "start": "node index.js"
