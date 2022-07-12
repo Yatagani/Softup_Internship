@@ -1,0 +1,10 @@
+langauge: generic
+sudo: required
+services:
+  - docker  # Automatically install a copy of Docker in our container
+
+before_install:
+  - docker build -t USERNAME/<PROJECT_NAME> -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true USERNAME/<PROJECT_NAME> npm run test
